@@ -1,4 +1,5 @@
 require('dotenv').config();
+const climaRouter = require('./routes/clima');
 const tareasRouter = require('./routes/tareas');
 const express = require('express');
 const helmet = require('helmet');
@@ -11,6 +12,7 @@ app.use(helmet());
 app.use(express.json());
 app.use(morgan('dev'));
 
+app.use('/api/clima', climaRouter);
 app.use('/api/tareas', tareasRouter);
 
 app.post(
